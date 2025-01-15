@@ -21,6 +21,7 @@ const SEO: FC<SEOProps> = ({
   const defaultTitle = "Bengkel Kita - Perbaikan Kendaraan Terbaik";
   const defaultDescription =
     "Bengkel Kita adalah tempat perbaikan kendaraan terbaik di Indonesia";
+  const defaultOgImage = "https://cdn.kita.blue/kita/thumbnail.png";
 
   return (
     <Helmet>
@@ -33,7 +34,7 @@ const SEO: FC<SEOProps> = ({
         property="og:description"
         content={ogDescription || description || defaultDescription}
       />
-      {ogImage && <meta property="og:image" content={ogImage} />}
+      <meta property="og:image" content={ogImage || defaultOgImage} />
       <meta property="og:type" content="website" />
 
       <meta name="twitter:card" content="summary_large_image" />
@@ -42,7 +43,7 @@ const SEO: FC<SEOProps> = ({
         name="twitter:description"
         content={ogDescription || description || defaultDescription}
       />
-      {ogImage && <meta name="twitter:image" content={ogImage} />}
+      <meta name="twitter:image" content={ogImage || defaultOgImage} />
 
       <link rel="canonical" href="https://bengkel.kita.blue" />
       <link rel="icon" href="https://cdn.kita.blue/kita/logo.png" />
