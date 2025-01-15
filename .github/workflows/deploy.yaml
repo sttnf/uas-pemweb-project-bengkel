@@ -21,9 +21,11 @@ jobs:
         node-version: 'latest'
         cache: 'pnpm'
 
-    # Step 3: Install PNPM
-    - name: Install PNPM
-      run: npm install -g pnpm
+    # Step 3: Set up PNPM
+    - name: Set up PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: 'latest'
 
     # Step 4: Install dependencies
     - name: Install dependencies
