@@ -1,5 +1,5 @@
 {
-  "homepage": "https://sttnf.github.io/uas-pemweb-project-bengkel",
+  "homepage": "https://bengkel.milkita.my.id",
   "name": "@sttnf/uas-pemweb-project-bengkel",
   "private": true,
   "version": "0.0.0",
@@ -8,12 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "pnpm build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "gh-pages": "^6.3.0",
     "lucide-react": "^0.471.1",
     "prettier": "^3.4.2",
     "react": "^19.0.0",
