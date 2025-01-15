@@ -10,34 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the code
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    # Step 2: Set up Node.js (latest version)
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 'latest'
-        cache: 'pnpm'
+      # Step 2: Set up Node.js (latest version)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "latest"
 
-    # Step 3: Set up PNPM
-    - name: Set up PNPM
-      uses: pnpm/action-setup@v2
-      with:
-        version: 'latest'
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: yarn install
 
-    # Step 4: Install dependencies
-    - name: Install dependencies
-      run: pnpm install
+      # Step 4: Build the project
+      - name: Build the project
+        run: yarn build
 
-    # Step 5: Build the project
-    - name: Build the project
-      run: pnpm run build
-
-    # Step 6: Deploy to GitHub Pages
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+      # Step 5: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
