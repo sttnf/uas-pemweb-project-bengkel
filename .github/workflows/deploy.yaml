@@ -19,7 +19,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "latest"
-          cache: "yarn"
 
       # Step 3: Install dependencies
       - name: Install dependencies
