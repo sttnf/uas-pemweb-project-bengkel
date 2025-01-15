@@ -1,0 +1,41 @@
+name: Deploy React to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Node.js (latest version)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'latest'
+        cache: 'pnpm'
+
+    # Step 3: Install PNPM
+    - name: Install PNPM
+      run: npm install -g pnpm
+
+    # Step 4: Install dependencies
+    - name: Install dependencies
+      run: pnpm install
+
+    # Step 5: Build the project
+    - name: Build the project
+      run: pnpm run build
+
+    # Step 6: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
