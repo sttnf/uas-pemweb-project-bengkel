@@ -34,3 +34,126 @@
   animation: fade-in 1s ease-out 0.3s forwards;
   opacity: 0;
 }
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes colorPulse {
+  0%,
+  100% {
+    color: #2563eb;
+  }
+  50% {
+    color: #60a5fa;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow-delayed {
+  animation: float 8s ease-in-out 3s infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+.animate-fade-in-up-delayed {
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.animate-fade-in-up-delayed-more {
+  animation: fadeInUp 1s ease-out 1s both;
+}
+
+.animate-color-pulse {
+  animation: colorPulse 4s infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes textGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes count {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-text-gradient {
+  animation: textGradient 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-count {
+  animation: count 1s ease-out forwards;
+}

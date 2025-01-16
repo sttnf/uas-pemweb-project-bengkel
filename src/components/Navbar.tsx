@@ -31,16 +31,13 @@ export default function Navbar() {
 
           {/* Desktop menu */}
           <div className="hidden sm:flex sm:items-center sm:space-x-4">
-            <a href="/#layanan" className="text-gray-500 hover:text-gray-900">
+            <a href="/#services" className="text-gray-500 hover:text-gray-900">
               Layanan
             </a>
-            <a href="/#harga" className="text-gray-500 hover:text-gray-900">
-              Harga
-            </a>
-            <a href="/#testimoni" className="text-gray-500 hover:text-gray-900">
+            <a href="/#testimonials" className="text-gray-500 hover:text-gray-900">
               Testimoni
             </a>
-            <a href="/#kontak" className="text-gray-500 hover:text-gray-900">
+            <a href="/#contact" className="text-gray-500 hover:text-gray-900">
               Kontak
             </a>
             <Link
@@ -64,29 +61,29 @@ export default function Navbar() {
         <div className="sm:hidden absolute w-full bg-white shadow-lg">
           <div className="pt-2 pb-3 space-y-1">
             <a
-              href="#layanan"
+              href="#services"
               className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
             >
               Layanan
             </a>
             <a
-              href="#harga"
-              className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-            >
-              Harga
-            </a>
-            <a
-              href="#testimoni"
+              href="#testimonials"
               className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
             >
               Testimoni
             </a>
             <a
-              href="#kontak"
+              href="#contact"
               className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
             >
               Kontak
             </a>
+            <Link
+              to="/service"
+              className="block px-3 py-2 text-base font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+            >
+              Servis
+            </Link>
             <Link
               to="/login"
               className="block px-3 py-2 text-base font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50"
