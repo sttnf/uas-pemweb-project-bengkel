@@ -7,6 +7,7 @@ type Route = {
 type Routes = {
   home: Route;
   login: Route;
+  service: Route;
   dashboard: {
     root: Route;
     appointments: Route;
@@ -25,6 +26,10 @@ export const routes: Routes = {
   login: {
     path: "/login",
     title: "Login",
+  },
+  service: {
+    path: "/service",
+    title: "Service",
   },
   dashboard: {
     root: {

@@ -4,6 +4,7 @@ import { routes } from "./routes";
 import { RouteGuard } from "./RouteGuard";
 
 import LandingPage from "./pages/LandingPage";
+import ServiceOrder from "./pages/ServiceOrder";
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
 import Appointments from "./pages/dashboard/Appointments";
@@ -18,6 +19,7 @@ const App: FC = () => {
       {/* Public routes */}
       <Route path={routes.home.path} element={<LandingPage />} />
       <Route path={routes.login.path} element={<LoginPage />} />
+      <Route path={routes.service.path} element={<ServiceOrder />} />
 
       {/* Dashboard routes */}
       <Route element={<RouteGuard protected />}>
