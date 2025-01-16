@@ -310,7 +310,7 @@ function LandingPage() {
               </div>
               <h3 className="mt-4 text-lg font-medium text-gray-900">Email</h3>
               <p className="mt-2 text-base text-gray-500">
-                info@bengkelmobil.com
+                info@milkita.my.id
               </p>
             </div>
             <div className="text-center">
