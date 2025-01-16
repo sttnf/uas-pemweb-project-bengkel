@@ -1,126 +1,134 @@
-import { Plus, Search, Filter } from "lucide-react";
+import { Filter } from "lucide-react";
 import DashboardLayout from "../../components/DashboardLayout";
-
-const customers = [
-  {
-    id: 1,
-    name: "Budi Santoso",
-    email: "budi.santoso@email.com",
-    phone: "081234567890",
-    visits: 12,
-    lastVisit: "2024-03-15",
-    status: "Aktif",
-  },
-  {
-    id: 2,
-    name: "Dewi Putri",
-    email: "dewi.putri@email.com",
-    phone: "081234567891",
-    visits: 8,
-    lastVisit: "2024-03-10",
-    status: "Aktif",
-  },
-  {
-    id: 3,
-    name: "Ahmad Rizki",
-    email: "ahmad.rizki@email.com",
-    phone: "081234567892",
-    visits: 15,
-    lastVisit: "2024-03-05",
-    status: "Aktif",
-  },
-];
 
 function Customers() {
   return (
     <DashboardLayout title="Pelanggan">
-      <div className="space-y-6">
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-semibold">Pelanggan</h2>
-          <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            <Plus className="h-5 w-5" />
-            <span>Tambah Pelanggan</span>
+      <div className="flex-1 p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-semibold">Pelanggan</h1>
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-md">
+            <i className="fas fa-plus"> </i>
+            Tambah Pelanggan
           </button>
         </div>
-
-        {/* Search and Filter */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+        <div className="bg-white p-4 rounded-md shadow-md">
+          <div className="flex items-center mb-4">
             <input
-              type="text"
+              className="flex-1 p-2 border rounded-md"
               placeholder="Cari pelanggan..."
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="text"
             />
+            <button className="ml-2 bg-gray-200 p-2 rounded-md">
+              <Filter size={16} />
+              Filter
+            </button>
           </div>
-          <button className="flex items-center space-x-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50">
-            <Filter className="h-5 w-5" />
-            <span>Filter</span>
-          </button>
+          <table className="w-full text-left">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="p-2">Nama</th>
+                <th className="p-2">Email</th>
+                <th className="p-2">Telepon</th>
+                <th className="p-2">Kunjungan</th>
+                <th className="p-2">Terakhir Kunjung</th>
+                <th className="p-2">Status</th>
+                <th className="p-2">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="p-2">Satria Mahatir</td>
+                <td className="p-2">cogil412121@email.com</td>
+                <td className="p-2">088844220004</td>
+                <td className="p-2">10</td>
+                <td className="p-2">2023-03-23</td>
+                <td className="p-2">
+                  <span className="bg-green-100 text-green-600 px-2 py-1 rounded-full">
+                    Aktif
+                  </span>
+                </td>
+                <td className="p-2 text-blue-600">Detail</td>
+              </tr>
+              <tr>
+                <td className="p-2">Agoes Buntz</td>
+                <td className="p-2">king.agoes@email.com</td>
+                <td className="p-2">0838383832146</td>
+                <td className="p-2">8</td>
+                <td className="p-2">2024-09-26</td>
+                <td className="p-2">
+                  <span className="bg-green-100 text-green-600 px-2 py-1 rounded-full">
+                    Aktif
+                  </span>
+                </td>
+                <td className="p-2 text-blue-600">Detail</td>
+              </tr>
+              <tr>
+                <td className="p-2">Maula Lubis</td>
+                <td className="p-2">Maulaa332@email.com</td>
+                <td className="p-2">0844442225</td>
+                <td className="p-2">15</td>
+                <td className="p-2">2024-011-01</td>
+                <td className="p-2">
+                  <span className="bg-green-100 text-green-600 px-2 py-1 rounded-full">
+                    Aktif
+                  </span>
+                </td>
+                <td className="p-2 text-blue-600">Detail</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-        {/* Customers Table */}
-        <div className="bg-white rounded-lg shadow-sm">
-          <div className="p-6">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="text-left text-sm text-gray-500 border-b">
-                    <th className="pb-3 pl-4">Nama</th>
-                    <th className="pb-3">Email</th>
-                    <th className="pb-3">Telepon</th>
-                    <th className="pb-3">Kunjungan</th>
-                    <th className="pb-3">Terakhir Kunjung</th>
-                    <th className="pb-3">Status</th>
-                    <th className="pb-3 pr-4">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {customers.map((customer) => (
-                    <tr key={customer.id} className="border-b last:border-b-0">
-                      <td className="py-4 pl-4">{customer.name}</td>
-                      <td className="py-4">{customer.email}</td>
-                      <td className="py-4">{customer.phone}</td>
-                      <td className="py-4">{customer.visits}</td>
-                      <td className="py-4">{customer.lastVisit}</td>
-                      <td className="py-4">
-                        <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
-                          {customer.status}
-                        </span>
-                      </td>
-                      <td className="py-4 pr-4">
-                        <button className="text-blue-600 hover:text-blue-700">
-                          Detail
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        {/* Customer Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold mb-4">Total Pelanggan</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <h2 className="text-xl font-semibold">Total Pelanggan</h2>
             <p className="text-3xl font-bold text-blue-600">150</p>
-            <p className="text-sm text-gray-500 mt-2">+12% dari bulan lalu</p>
+            <p className="text-sm text-gray-500">+12% dari bulan lalu</p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold mb-4">Pelanggan Aktif</h3>
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <h2 className="text-xl font-semibold">Pelanggan Aktif</h2>
             <p className="text-3xl font-bold text-green-600">125</p>
-            <p className="text-sm text-gray-500 mt-2">
-              83% dari total pelanggan
-            </p>
+            <p className="text-sm text-gray-500">83% dari total pelanggan</p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold mb-4">Rata-rata Kunjungan</h3>
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <h2 className="text-xl font-semibold">Rata-rata Kunjungan</h2>
             <p className="text-3xl font-bold text-purple-600">3</p>
-            <p className="text-sm text-gray-500 mt-2">
-              Kunjungan per pelanggan
-            </p>
+            <p className="text-sm text-gray-500">Kunjungan per pelanggan</p>
+          </div>
+        </div>
+        <div className="mt-6">
+          <h2 className="text-2xl font-semibold mb-4">Model Mobil</h2>
+          <div className="bg-white p-4 rounded-md shadow-md">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-2">Model</th>
+                  <th className="p-2">Merk</th>
+                  <th className="p-2">Tahun</th>
+                  <th className="p-2">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-2">Avanza</td>
+                  <td className="p-2">Toyota</td>
+                  <td className="p-2">2020</td>
+                  <td className="p-2 text-blue-600">Detail</td>
+                </tr>
+                <tr>
+                  <td className="p-2">Civic</td>
+                  <td className="p-2">Honda</td>
+                  <td className="p-2">2019</td>
+                  <td className="p-2 text-blue-600">Detail</td>
+                </tr>
+                <tr>
+                  <td className="p-2">Xenia</td>
+                  <td className="p-2">Daihatsu</td>
+                  <td className="p-2">2021</td>
+                  <td className="p-2 text-blue-600">Detail</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
