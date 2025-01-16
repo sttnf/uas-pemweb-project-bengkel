@@ -1,12 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import {
   Car,
   Wrench,
   Clock,
   Shield,
-  Menu,
-  X,
   Settings,
   Users,
   Star,
@@ -17,10 +13,9 @@ import {
   Facebook,
   Twitter,
 } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 function LandingPage() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
   const features = [
     {
       icon: <Wrench className="h-6 w-6 text-blue-500" />,
@@ -95,96 +90,7 @@ function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed w-full bg-white shadow-sm z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Car className="h-8 w-8 text-blue-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">
-                Bengkel Kita
-              </span>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="flex items-center sm:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-500 hover:text-gray-600"
-              >
-                {isMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </button>
-            </div>
-
-            {/* Desktop menu */}
-            <div className="hidden sm:flex sm:items-center sm:space-x-8">
-              <a href="#layanan" className="text-gray-500 hover:text-gray-900">
-                Layanan
-              </a>
-              <a href="#harga" className="text-gray-500 hover:text-gray-900">
-                Harga
-              </a>
-              <a
-                href="#testimoni"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                Testimoni
-              </a>
-              <a href="#kontak" className="text-gray-500 hover:text-gray-900">
-                Kontak
-              </a>
-              <Link
-                to="/login"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Login
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        {isMenuOpen && (
-          <div className="sm:hidden absolute w-full bg-white shadow-lg">
-            <div className="pt-2 pb-3 space-y-1">
-              <a
-                href="#layanan"
-                className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Layanan
-              </a>
-              <a
-                href="#harga"
-                className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Harga
-              </a>
-              <a
-                href="#testimoni"
-                className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Testimoni
-              </a>
-              <a
-                href="#kontak"
-                className="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Kontak
-              </a>
-              <Link
-                to="/login"
-                className="block px-3 py-2 text-base font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50"
-              >
-                Login
-              </Link>
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <div className="relative bg-white pt-16">
@@ -228,7 +134,7 @@ function LandingPage() {
       </div>
 
       {/* Features Section */}
-      <div id="layanan" className="py-12 bg-gray-50">
+      <div id="layanan" className="py-12 bg-gray-50 scroll-my-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -263,7 +169,7 @@ function LandingPage() {
       </div>
 
       {/* Services Section */}
-      <div id="harga" className="py-12 bg-white">
+      <div id="harga" className="py-12 bg-white scroll-my-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -279,23 +185,26 @@ function LandingPage() {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+                  className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-gray-100 flex flex-col gap-4 items-center justify-center text-center"
                 >
                   <div className="h-16 w-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto">
                     {service.icon}
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-gray-900 text-center">
+                  <h3 className="text-xl font-semibold text-gray-900 text-center">
                     {service.title}
                   </h3>
                   <p className="mt-2 text-gray-500 text-center">
                     {service.description}
                   </p>
-                  <p className="mt-4 text-blue-600 font-semibold text-center">
+                  <p className="text-blue-600 font-semibold text-center">
                     {service.price}
                   </p>
-                  <button className="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                  <a
+                    href="/service"
+                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                  >
                     Pesan Sekarang
-                  </button>
+                  </a>
                 </div>
               ))}
             </div>
@@ -328,7 +237,7 @@ function LandingPage() {
       </div>
 
       {/* Testimonials */}
-      <div id="testimoni" className="py-12 bg-gray-50">
+      <div id="testimoni" className="py-12 bg-gray-50 scroll-my-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -375,7 +284,7 @@ function LandingPage() {
       </div>
 
       {/* Contact Section */}
-      <div id="kontak" className="bg-white py-12">
+      <div id="kontak" className="bg-white py-12 scroll-my-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900">
