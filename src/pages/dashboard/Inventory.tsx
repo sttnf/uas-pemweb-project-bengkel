@@ -29,6 +29,87 @@ const inventory = [
     price: "Rp 300.000",
     status: "Perlu Restock",
   },
+  {
+    id: 4,
+    item: "Busi",
+    category: "Sparepart",
+    stock: 30,
+    minStock: 20,
+    price: "Rp 50.000",
+    status: "Stok Cukup",
+  },
+  {
+    id: 5,
+    item: "Kampas Kopling",
+    category: "Sparepart",
+    stock: 11,
+    minStock: 15,
+    price: "Rp 400.000",
+    status: "Stok Menipis",
+  },
+  {
+    id: 6,
+    item: "Aki",
+    category: "Elektrikal",
+    stock: 5,
+    minStock: 10,
+    price: "Rp 1.000.000",
+    status: "Perlu Restock",
+  },
+  {
+    id: 7,
+    item: "Air Radiator",
+    category: "Pelumas",
+    stock: 50,
+    minStock: 30,
+    price: "Rp 75.000",
+    status: "Stok Cukup",
+  },
+  {
+    id: 8,
+    item: "Timing Belt",
+    category: "Sparepart",
+    stock: 25,
+    minStock: 15,
+    price: "Rp 500.000",
+    status: "Stok Cukup",
+  },
+  {
+    id: 9,
+    item: "V-belt",
+    category: "Sparepart",
+    stock: 30,
+    minStock: 20,
+    price: "Rp 200.000",
+    status: "Stok Cukup",
+  },
+  {
+    id: 10,
+    item: "Lampu sein",
+    category: "Elektrikal",
+    stock: 10,
+    minStock: 15,
+    price: "Rp 75.000",
+    status: "Perlu Restock",
+  },
+  {
+    id: 11,
+    item: "Bering Roda",
+    category: "Sparepart",
+    stock: 30,
+    minStock: 20,
+    price: "Rp 150.000",
+    status: "Stok Cukup",
+  },
+  {
+    id: 12,
+    item: "Relay",
+    category: "Elektrikal",
+    stock: 30,
+    minStock: 25,
+    price: "Rp 100.000",
+    status: "Stok Cukup",
+  },
 ];
 
 function Inventory() {
@@ -109,13 +190,12 @@ function Inventory() {
                       <td className="py-4">{item.price}</td>
                       <td className="py-4">
                         <span
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            item.status === "Stok Cukup"
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${item.status === "Stok Cukup"
                               ? "bg-green-100 text-green-800"
                               : item.status === "Stok Menipis"
                                 ? "bg-yellow-100 text-yellow-800"
                                 : "bg-red-100 text-red-800"
-                          }`}
+                            }`}
                         >
                           {item.status}
                         </span>
