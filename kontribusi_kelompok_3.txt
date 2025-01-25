@@ -1,0 +1,5 @@
+Kelompok 3:
+1. 110224155	Rafa Al Razzak 100% (Pembuat ide)
+2.	110224106	Muhammad Fiqhul Hakim 20% (Membuah halaman dashboard bagian jadwal)
+3.	110224185	Muhamad Yoga Dwi Febrian 20% (Membuat halaman dashboard bagian inventaris)
+4.	110224075	Muhammad Raihan Ramadhan 20 % (Membuat halaman dashboard bagian pelanggan)
